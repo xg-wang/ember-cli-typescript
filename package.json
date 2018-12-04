@@ -29,7 +29,7 @@
     "test": "ember test",
     "test:all": "ember try:each",
     "ci:prepare": "yarn prepublishOnly && rimraf ts",
-    "ci:test": "ember test && mocha --recursive js/tests",
+    "ci:test": "ember test -r xunit && mocha --recursive js/tests -R xunit > node-tests.xml",
     "test:node": "mocha -r register-ts-node ts/tests/**/*.{ts,js}",
     "prepublishOnly": "yarn tsc --project ts --noEmit false",
     "postpublish": "rimraf js"
